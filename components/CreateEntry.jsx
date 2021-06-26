@@ -1,6 +1,6 @@
 //import { response } from 'express';
 import React, { Component } from 'react';
-import '../src/styles.css';
+import '../styles.css';
 
 class UserEntry extends Component {
 
@@ -33,8 +33,6 @@ class UserEntry extends Component {
     this.setState(fieldItem);
   }
 
-
-
   handleClick() {
     /*
       when this function is called, 
@@ -45,19 +43,18 @@ class UserEntry extends Component {
      */
   
     const data = this.state;
-
     fetch('http://localhost:3000/api', {
-      method: 'post',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-    // I also need to send this new item stored in this.state
-    // to the parent state to force a rerender of the library
+    .then(res => res.json())
     .then(newItem => {
       this.props.updateLibrary(newItem)
     })
+    .catch(err => console.log('Error creating new item',err))
   }
 
   render() {

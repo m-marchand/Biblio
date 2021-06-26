@@ -37,19 +37,17 @@ app.get('/api', (req, res) => {
   User sends a post request with entry
   data in request body
 */
-
 app.post('/api', (req, res) => {
   const { title, composer, date, style, misc  } = req.body;
   Library.create({ title, composer, date, style, misc })
   .then((newItem) => {
     // send this library entry to the front end to be rendered
-    res.status(200).send('Item saved to database: ', newItem);
+    res.status(200).json(newItem);
   })
-  .catch(() => {
-    res.status(400).send('Unable to save to database');
+  .catch((err) => {
+    res.status(400).send(err);
   })
 })
-
 
 /*
   Query the DB for entries that match 

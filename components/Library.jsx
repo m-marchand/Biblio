@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../src/styles.css';
+import '../styles.css';
 import Entry from './Entry.jsx'
 
 class Library extends Component {
@@ -31,9 +31,9 @@ class Library extends Component {
     this.fetchData();
   }
 
-  componentDidUpdate() {
-    this.fetchData();
-  }
+  // componentDidUpdate() {
+  //   this.fetchData();
+  // }
 
   render() {
     // iterate through the state objet to create 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../src/styles.css';
+import '../styles.css';
 
 import UserEntry from './CreateEntry.jsx';
 import Library from './Library.jsx';
